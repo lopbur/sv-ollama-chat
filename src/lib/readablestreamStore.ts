@@ -16,12 +16,10 @@ export function readablestreamStore() {
 
             let finaltext = '';
             while (true) {
-                const { value: stream, done } = await reader.read();
-                let token = '';
-                if (stream != undefined) token = JSON.parse(stream ?? '')?.message?.content;
+                const { value: token, done } = await reader.read();
 
                 update((val) => {
-                    finaltext = val.text + token;
+                    finaltext = val.text + (token ?? '');
                     return { loading: true, text: finaltext };
                 });
                 if (done) break;

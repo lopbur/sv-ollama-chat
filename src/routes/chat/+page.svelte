@@ -23,7 +23,7 @@
 
         try {
             const answer = response.request(
-                new Request('https://aoji.mooo.com/ollama/api/chat', {
+                new Request('http://aoji.mooo.com:8080/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ model: 'llama3.2:latest', messages: chat_history })
